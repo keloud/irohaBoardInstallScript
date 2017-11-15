@@ -15,7 +15,7 @@ systemctl enable apache2
 systemctl start apache2
 #Apache Setting
 a2enmod rewrite
-sed -e '/<Directory /var/www/>/,/</Directory> s/AllowOverride None/AllowOverride All/g /etc/apache2/apache2.conf'
+sed -e '/<Directory /var/www/>/,/</Directory> s/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf
 systemctl restart apache2
 
 ##MySQL
@@ -23,7 +23,7 @@ systemctl restart apache2
 systemctl enable mysql
 systemctl start mysql
 #MySQL Setting
-mysql --defaults-extra-file=./irohaBoard_Installer_MySQL.cnf -N < irohaBoard_Installer_MySQL.sql]
+mysql --defaults-extra-file=~./irohaBoard_Installer_MySQL.cnf -N < irohaBoard_Installer_MySQL.sql]
 sed -e '/[mysqld]/i sql_mode=ALLOW_INVALID_DATES/' /etc/mysql/mysql.conf.d/mysqld.cnf
 
 ##CakePHP

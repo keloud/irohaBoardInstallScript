@@ -8,6 +8,9 @@ wget https://github.com/keloud/irohaBoard_InstallScript/archive/1.0.0.tar.gz
 #Extract
 tar xvf 1.0.0.tar.gz
 
+#Change Current Directory
+cd 1.0.0
+
 #Please enter the password you set.
 nano irohaBoard_Installer_MySQL.cnf
 
