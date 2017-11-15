@@ -16,7 +16,7 @@ systemctl enable apache2
 systemctl start apache2
 #Apache Setting
 a2enmod rewrite
-# <- vimの部分
+sed -e '/<Directory /var/www/>/,/</Directory> s/AllowOverride None/AllowOverride All/g /etc/apache2/apache2.conf'
 systemctl restart apache2
 
 ##MySQL
@@ -24,8 +24,8 @@ systemctl restart apache2
 systemctl enable mysql
 systemctl start mysql
 #MySQL Setting
-mysql --defaults-extra-file=./irohaBoard_Installer_MySQL.cnf -N < irohaBoard_Installer_MySQL.sql
-# <- vimの部分
+mysql --defaults-extra-file=./irohaBoard_Installer_MySQL.cnf -N < irohaBoard_Installer_MySQL.sql]
+sed -e '/[mysqld]/i sql_mode=ALLOW_INVALID_DATES/' /etc/mysql/mysql.conf.d/mysqld.cnf
 
 ##CakePHP
 wget https://github.com/cakephp/cakephp/archive/2.10.3.tar.gz
@@ -37,6 +37,7 @@ wget https://github.com/irohasoft/irohaboard/archive/v0.9.8.1.tar.gz
 tar xvf v0.9.8.1.tar.gz
 rm -d -r -f  /var/www/html/
 mv irohaboard-0.9.8.1/ /var/www/html/
-# <- vimの部分
-
+sed -e "s/'login' => 'root',/'login' => 'ib_user',/g" /var/www/html/Config/database.php
+sed -e "s/'password' => '',/'password' => 'f1b3f805a8b4ea6d35f2de4c4fbaf3df1caaaf94',/g" /var/www/html/Config/database.php
+sed -e "s/'database' => 'hiiragi2',/'database' => 'ib',/g" /var/www/html/Config/database.php
 sudo chown -R www-data:www-data /var/www/
