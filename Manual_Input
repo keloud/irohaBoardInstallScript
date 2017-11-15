@@ -1,0 +1,14 @@
+#Download
+wget https://github.com/keloud/irohaBoard_InstallScript/archive/1.0.0.tar.gz
+
+#Extract
+tar xvf 1.0.0.tar.gz
+
+#Please enter the password you set.
+nano irohaBoard_Installer_MySQL.cnf
+
+#Add authority.
+chmod 777 irohaBoard_Installer.sh
+
+#Start installation
+./irohaBoard_Installer.sh
