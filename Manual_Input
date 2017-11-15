@@ -1,3 +1,7 @@
+#Package Update
+sudo apt update
+sudo apt upgrade -y
+
 #Download
 wget https://github.com/keloud/irohaBoard_InstallScript/archive/1.0.0.tar.gz
 
@@ -11,4 +15,4 @@ nano irohaBoard_Installer_MySQL.cnf
 chmod 777 irohaBoard_Installer.sh
 
 #Start installation
-./irohaBoard_Installer.sh
+sudo ./irohaBoard_Installer.sh

@@ -2,7 +2,6 @@
 ##Package
 #Package Update
 apt update
-apt upgrade
 #Package Install
 apt install -y php php-common php-mysql php-intl php-mbstring composer apache2 libapache2-mod-php mysql-server
 
@@ -41,3 +40,6 @@ sed -e "s/'login' => 'root',/'login' => 'ib_user',/g" /var/www/html/Config/datab
 sed -e "s/'password' => '',/'password' => 'f1b3f805a8b4ea6d35f2de4c4fbaf3df1caaaf94',/g" /var/www/html/Config/database.php
 sed -e "s/'database' => 'hiiragi2',/'database' => 'ib',/g" /var/www/html/Config/database.php
 sudo chown -R www-data:www-data /var/www/
+
+##After
+reboot
