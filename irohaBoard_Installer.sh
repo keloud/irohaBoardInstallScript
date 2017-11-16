@@ -1,5 +1,4 @@
 #!/bin/bash
-script irohaBoard_Installer.log
 echo -e "\e[33m Package\e[m"
 echo -e "\e[34m Package Update\e[m"
 apt update
