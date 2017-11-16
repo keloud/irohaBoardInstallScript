@@ -15,7 +15,7 @@ systemctl enable apache2
 systemctl start apache2
 echo -e "\e[34m Apache Setting\e[m"
 a2enmod rewrite
-sed -e '/<Directory /var/www/>/,/</Directory> s/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf # 問題あり
+sed -e '\/Directory \/var\/www\//,/\/Directory s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf # 問題あり
 systemctl restart apache2
 
 echo -e "\e[33m MySQL\e[m"
