@@ -15,7 +15,7 @@ systemctl enable apache2
 systemctl start apache2
 echo -e "\e[34m Apache Setting\e[m"
 a2enmod rewrite
-sed -e '\/Directory \/var\/www\//,/\/Directory s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf # 問題あり
+sed -ie '\/Directory \/var\/www\//,/\/Directory s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
 systemctl restart apache2
 
 echo -e "\e[33m MySQL\e[m"
@@ -24,7 +24,7 @@ systemctl enable mysql
 systemctl start mysql
 echo -e "\e[34m MySQL Setting\e[m"
 mysql --defaults-extra-file=irohaBoard_Installer_MySQL.cnf < irohaBoard_Installer_MySQL.sql
-sed -e '/[mysqld]/i sql_mode=ALLOW_INVALID_DATES/' /etc/mysql/mysql.conf.d/mysqld.cnf # 問題あり
+sed -ie '/\[mysqld\]/i sql_mode=ALLOW_INVALID_DATES' /etc/mysql/mysql.conf.d/mysqld.cnf
 
 echo -e "\e[33m CakePHP\e[m"
 wget https://github.com/cakephp/cakephp/archive/2.10.3.tar.gz
