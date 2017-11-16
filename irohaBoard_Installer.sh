@@ -1,4 +1,5 @@
 #!/bin/bash
+script irohaBoard_Installer.log
 echo -e "\e[33m Package\e[m"
 echo -e "\e[34m Package Update\e[m"
 apt update
@@ -24,7 +25,7 @@ systemctl enable mysql
 systemctl start mysql
 echo -e "\e[34m MySQL Setting\e[m"
 mysql --defaults-extra-file=irohaBoard_Installer_MySQL.cnf < irohaBoard_Installer_MySQL.sql
-sed -ie '/\[mysqld\]/i sql_mode=ALLOW_INVALID_DATES' /etc/mysql/mysql.conf.d/mysqld.cnf
+sed -ie '/\[mysqld\]/a sql_mode=ALLOW_INVALID_DATES' /etc/mysql/mysql.conf.d/mysqld.cnf
 
 echo -e "\e[33m CakePHP\e[m"
 wget https://github.com/cakephp/cakephp/archive/2.10.3.tar.gz
@@ -36,9 +37,9 @@ wget https://github.com/irohasoft/irohaboard/archive/v0.9.8.1.tar.gz
 tar xvf v0.9.8.1.tar.gz
 rm -d -r -f  /var/www/html/
 mv irohaboard-0.9.8.1/ /var/www/html/
-sed -e "s/'login' => 'root',/'login' => 'ib_user',/g" /var/www/html/Config/database.php
-sed -e "s/'password' => '',/'password' => 'f1b3f805a8b4ea6d35f2de4c4fbaf3df1caaaf94',/g" /var/www/html/Config/database.php
-sed -e "s/'database' => 'hiiragi2',/'database' => 'ib',/g" /var/www/html/Config/database.php
+sed -ie "s/'login' => 'root',/'login' => 'ib_user',/g" /var/www/html/Config/database.php
+sed -ie "s/'password' => '',/'password' => 'f1b3f805a8b4ea6d35f2de4c4fbaf3df1caaaf94',/g" /var/www/html/Config/database.php
+sed -ie "s/'database' => 'hiiragi2',/'database' => 'ib',/g" /var/www/html/Config/database.php
 sudo chown -R www-data:www-data /var/www/
 
 echo -e "\e[33m After\e[m"
