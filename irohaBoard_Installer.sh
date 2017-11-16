@@ -36,9 +36,9 @@ wget https://github.com/irohasoft/irohaboard/archive/v0.9.8.1.tar.gz
 tar xvf v0.9.8.1.tar.gz
 rm -d -r -f  /var/www/html/
 mv irohaboard-0.9.8.1/ /var/www/html/
-sed -e "s/'login' => 'root',/'login' => 'ib_user',/g" /var/www/html/Config/database.php # 問題あり
-sed -e "s/'password' => '',/'password' => 'f1b3f805a8b4ea6d35f2de4c4fbaf3df1caaaf94',/g" /var/www/html/Config/database.php # 問題あり
-sed -e "s/'database' => 'hiiragi2',/'database' => 'ib',/g" /var/www/html/Config/database.php # 問題あり
+sed -e "s/'login' => 'root',/'login' => 'ib_user',/g" /var/www/html/Config/database.php
+sed -e "s/'password' => '',/'password' => 'f1b3f805a8b4ea6d35f2de4c4fbaf3df1caaaf94',/g" /var/www/html/Config/database.php
+sed -e "s/'database' => 'hiiragi2',/'database' => 'ib',/g" /var/www/html/Config/database.php
 sudo chown -R www-data:www-data /var/www/
 
 echo -e "\e[33m After\e[m"
