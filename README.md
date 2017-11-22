@@ -1,0 +1,2 @@
+# keloud-irohaBoard_InstallScript
+irohaBoardをUbuntu 16.04 に導入するインストーラースクリプト
