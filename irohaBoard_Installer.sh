@@ -24,8 +24,9 @@ systemctl restart apache2
 systemctl enable mysql
 systemctl start mysql
 #MySQL Setting
-mysql --defaults-extra-file=./irohaBoard_Installer_MySQL.cnf -N < irohaBoard_Installer_MySQL.sql]
+mysql --defaults-extra-file=./irohaBoard_Installer_MySQL.cnf -N < irohaBoard_Installer_MySQL.sql
 sed -e '/[mysqld]/i sql_mode=ALLOW_INVALID_DATES/' /etc/mysql/mysql.conf.d/mysqld.cnf
+sed -e 's/bind-address/#bind-address/' /etc/mysql/mysql.conf.d/mysqld.cnf
 
 ##CakePHP
 wget https://github.com/cakephp/cakephp/archive/2.10.3.tar.gz
