@@ -5,6 +5,11 @@ sed -e 's/mysql/'sqlPass'/' ./irohaBoard_Installer_MySQL.cnf
 
 echo "Set irohaBoard root Password"
 read -sp "Password: " irohaPass
+sed -e 's/irohaPass/'irohaPass'/' ./irohaBoard_Installer_MySQL.sql
+
+echo "Set irohaBoard remote Password"
+read -sp "Password: " irohaRemotePass
+sed -e 's/irohaRemotePass/'irohaRemotePass'/' ./irohaBoard_Installer_MySQL.sql
 
 echo -e "\e[33m Package\e[m"
 echo -e "\e[34m Package Update\e[m"
