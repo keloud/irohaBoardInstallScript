@@ -1,4 +1,11 @@
 #!/bin/bash
+echo "Set Mysql root Password"
+read -sp "Password: " sqlPass
+sed -e 's/mysql/'sqlPass'/' ./irohaBoard_Installer_MySQL.cnf
+
+echo "Set irohaBoard root Password"
+read -sp "Password: " irohaPass
+
 echo -e "\e[33m Package\e[m"
 echo -e "\e[34m Package Update\e[m"
 apt update
@@ -38,7 +45,7 @@ tar xvf v0.9.8.1.tar.gz
 rm -d -r -f  /var/www/html/
 mv irohaboard-0.9.8.1/ /var/www/html/
 sed -ie "s/'login' => 'root',/'login' => 'ib_user',/g" /var/www/html/Config/database.php
-sed -ie "s/'password' => '',/'password' => 'f1b3f805a8b4ea6d35f2de4c4fbaf3df1caaaf94',/g" /var/www/html/Config/database.php
+sed -ie "s/'password' => '',/'password' => '"irohaPass"',/g" /var/www/html/Config/database.php
 sed -ie "s/'database' => 'hiiragi2',/'database' => 'ib',/g" /var/www/html/Config/database.php
 sudo chown -R www-data:www-data /var/www/
 
