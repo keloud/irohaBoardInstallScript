@@ -1,4 +1,6 @@
-create database ib;
-grant all privileges on ib.* to ib_user@localhost identified by 'f1b3f805a8b4ea6d35f2de4c4fbaf3df1caaaf94';
-grant all privileges on ib.* to ib_remote@'%' identified by 'ib-remote';
-flush privileges;
+CREATE DATABASE ib;
+GRANT ALL PRIVILEGES ON ib.* TO ib_user@localhost
+IDENTIFIED BY 'f1b3f805a8b4ea6d35f2de4c4fbaf3df1caaaf94';
+GRANT ALL PRIVILEGES ON ib.* TO ib_remote@'%'
+IDENTIFIED BY 'ib-remote';
+FLUSH PRIVILEGES;
