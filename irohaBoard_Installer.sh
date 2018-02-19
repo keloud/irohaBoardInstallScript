@@ -10,9 +10,10 @@ do
     if [ $sqlPass = $RsqlPass ]; then
         break
     else
-        echo "Password is incorrect."
+        echo "\e[41m Password is incorrect.\e[m"
     fi
 done
+echo
 sed -ie "s/mysql/$sqlPass/" ./irohaBoard_Installer_MySQL.cnf
 
 while :
@@ -26,9 +27,10 @@ do
     if [ $irohaPass = $RirohaPass ]; then
         break
     else
-        echo "Password is incorrect."
+        echo "\e[41m Password is incorrect.\e[m"
     fi
 done
+echo
 sed -ie "s/irohaPass/$irohaPass/" ./irohaBoard_Installer_MySQL.sql
 
 while :
@@ -42,9 +44,10 @@ do
     if [ $irohaRemotePass = $RirohaRemotePass ]; then
         break
     else
-        echo "Password is incorrect."
+        echo "\e[41m Password is incorrect.\e[m"
     fi
 done
+echo
 sed -ie "s/irohaRemotePass/$irohaRemotePass/" ./irohaBoard_Installer_MySQL.sql
 
 echo -e "\e[33m Package\e[m"
