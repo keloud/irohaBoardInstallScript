@@ -44,3 +44,13 @@ chmod 555 irohaBoard_Installer.sh
 <code>
 sudo ./irohaBoard_Installer.sh
 </code>
+
+### MySqlのrootパスワードを求められるので入力する
+
+### MySqlのirohaBoardのrootパスワードを求められるので入力する
+
+### MySqlのirohaBoardのremote userパスワードを求められるので入力する
+
+### MySqlのrootパスワードを求められるので同じものを入力する
+
+### 最後にEnterキーを押すと再起動を行います
