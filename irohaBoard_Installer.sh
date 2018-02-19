@@ -10,7 +10,7 @@ do
     if [ $sqlPass = $RsqlPass ]; then
         break
     else
-        echo "\e[41m Password is incorrect.\e[m"
+        echo "\e[41m Password is incorrect\e[m"
     fi
 done
 echo
@@ -27,7 +27,7 @@ do
     if [ $irohaPass = $RirohaPass ]; then
         break
     else
-        echo "\e[41m Password is incorrect.\e[m"
+        echo "\e[41m Password is incorrect\e[m"
     fi
 done
 echo
@@ -44,7 +44,7 @@ do
     if [ $irohaRemotePass = $RirohaRemotePass ]; then
         break
     else
-        echo "\e[41m Password is incorrect.\e[m"
+        echo "\e[41m Password is incorrect\e[m"
     fi
 done
 echo
