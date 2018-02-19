@@ -37,7 +37,7 @@ cd irohaBoard_InstallScript-master
 
 ### 実行権限を与える
 <code>
-chmod 555 irohaBoard_Installer.sh
+chmod 777 irohaBoard_Installer.sh
 </code>
 
 ### インストールを開始する
