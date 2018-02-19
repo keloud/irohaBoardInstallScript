@@ -11,3 +11,23 @@ irohaBoardをUbuntu 16.04 に導入するインストーラースクリプト
 ## 利用させていただいているもの
 iroha Board 0.9.13
 CakePHP 2.10.7
+
+## 使い化
+### OSを最新にする
+sudo apt update
+sudo apt upgrade -y
+
+### ダウンロードする
+wget https://github.com/keloud/irohaboard_InstallScript/archive/master.tar.gz
+
+### 解凍する
+tar -xvf master.tar.gz
+
+### カレントディレクトリを変更する
+cd irohaBoard_InstallScript-master
+
+### 実行権限を与える
+chmod 555 irohaBoard_Installer.sh
+
+### インストールを開始する
+sudo ./irohaBoard_Installer.sh
