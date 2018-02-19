@@ -10,7 +10,7 @@ do
     if [ $sqlPass = $RsqlPass ]; then
         break
     else
-        echo "\e[41m Password is incorrect\e[m"
+        echo -e "\e[41mPassword is incorrect\e[m"
     fi
 done
 echo
@@ -27,7 +27,7 @@ do
     if [ $irohaPass = $RirohaPass ]; then
         break
     else
-        echo "\e[41m Password is incorrect\e[m"
+        echo -e "\e[41mPassword is incorrect\e[m"
     fi
 done
 echo
@@ -44,46 +44,46 @@ do
     if [ $irohaRemotePass = $RirohaRemotePass ]; then
         break
     else
-        echo "\e[41m Password is incorrect\e[m"
+        echo -e "\e[41mPassword is incorrect\e[m"
     fi
 done
 echo
 sed -ie "s/irohaRemotePass/$irohaRemotePass/" ./irohaBoard_Installer_MySQL.sql
 
-echo -e "\e[33m Package\e[m"
-echo -e "\e[34m Package Update\e[m"
+echo -e "\e[33mPackage\e[m"
+echo -e "\e[34mPackage Update\e[m"
 apt update
-echo -e "\e[34m Package Install\e[m"
+echo -e "\e[34mPackage Install\e[m"
 apt install -y php php-common php-mysql php-intl php-mbstring composer apache2 libapache2-mod-php mysql-server
 
-echo -e "\e[33m PHP\e[m"
-echo -e "\e[34m PHP Setting\e[m"
+echo -e "\e[33mPHP\e[m"
+echo -e "\e[34mPHP Setting\e[m"
 phpenmod pdo pdo_mysql mysqli mysqlnd
 
-echo -e "\e[33m Apache\e[m"
-echo -e "\e[34m Apache System Setting\e[m"
+echo -e "\e[33mApache\e[m"
+echo -e "\e[34mApache System Setting\e[m"
 systemctl enable apache2
 systemctl start apache2
-echo -e "\e[34m Apache Setting\e[m"
+echo -e "\e[34mApache Setting\e[m"
 a2enmod rewrite
 sed -ie '/Directory \/var\/www/,/Directory/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
 systemctl restart apache2
 
-echo -e "\e[33m MySQL\e[m"
-echo -e "\e[34m MySQL System Setting\e[m"
+echo -e "\e[33mMySQL\e[m"
+echo -e "\e[34mMySQL System Setting\e[m"
 systemctl enable mysql
 systemctl start mysql
-echo -e "\e[34m MySQL Setting\e[m"
+echo -e "\e[34mMySQL Setting\e[m"
 mysql --defaults-extra-file=irohaBoard_Installer_MySQL.cnf < irohaBoard_Installer_MySQL.sql
 sed -ie '/\[mysqld\]/a sql_mode=ALLOW_INVALID_DATES' /etc/mysql/mysql.conf.d/mysqld.cnf
 sed -ie 's/bind-address/#bind-address/' /etc/mysql/mysql.conf.d/mysqld.cnf
 
-echo -e "\e[33m CakePHP\e[m"
+echo -e "\e[33mCakePHP\e[m"
 wget https://github.com/cakephp/cakephp/archive/2.10.7.tar.gz
 tar xvf ./2.10.7.tar.gz
 mv cakephp-2.10.7/  /var/www/cake/
 
-echo -e "\e[33m irohaBoard\e[m"
+echo -e "\e[33mirohaBoard\e[m"
 wget https://github.com/irohasoft/irohaboard/archive/v0.9.13.tar.gz
 tar xvf ./v0.9.13.tar.gz
 rm -d -r -f  /var/www/html/
@@ -97,7 +97,7 @@ echo
 echo "Login ID: root"
 echo "Password: irohaboard"
 echo "Please change your password immediately after login"
-echo -e "\e[33m Restart by pressing Enter key\e[m"
+echo -e "\e[33mRestart by pressing Enter key\e[m"
 read
 reboot
 
