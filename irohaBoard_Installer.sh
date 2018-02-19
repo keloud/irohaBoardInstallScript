@@ -80,14 +80,14 @@ sed -e 's/bind-address/#bind-address/' /etc/mysql/mysql.conf.d/mysqld.cnf
 
 echo -e "\e[33m CakePHP\e[m"
 wget https://github.com/cakephp/cakephp/archive/2.10.7.tar.gz
-tar xvf ./2.10.3.tar.gz
-mv cakephp-2.10.3/  /var/www/cake/
+tar xvf ./2.10.7.tar.gz
+mv cakephp-2.10.7/  /var/www/cake/
 
 echo -e "\e[33m irohaBoard\e[m"
 wget https://github.com/irohasoft/irohaboard/archive/v0.9.13.tar.gz
-tar xvf ./v0.9.8.1.tar.gz
+tar xvf ./v0.9.13.tar.gz
 rm -d -r -f  /var/www/html/
-mv irohaboard-0.9.8.1/ /var/www/html/
+mv irohaboard-0.9.13/ /var/www/html/
 sed -ie "s/'login' => 'root',/'login' => 'ib_user',/g" /var/www/html/Config/database.php
 sed -ie "s/'password' => '',/'password' => '$irohaPass',/g" /var/www/html/Config/database.php
 sed -ie "s/'database' => 'hiiragi2',/'database' => 'ib',/g" /var/www/html/Config/database.php
