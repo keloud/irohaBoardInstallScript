@@ -89,8 +89,7 @@ tar xvf v0.9.8.1.tar.gz
 rm -d -r -f  /var/www/html/
 mv irohaboard-0.9.8.1/ /var/www/html/
 sed -ie "s/'login' => 'root',/'login' => 'ib_user',/g" /var/www/html/Config/database.php
-sed -ie "s/'password' => '',/'password' => '$irohaPass',/g"
-/var/www/html/Config/database.php
+sed -ie "s/'password' => '',/'password' => '$irohaPass',/g" /var/www/html/Config/database.php
 sed -ie "s/'database' => 'hiiragi2',/'database' => 'ib',/g" /var/www/html/Config/database.php
 sudo chown -R www-data:www-data /var/www/
 
