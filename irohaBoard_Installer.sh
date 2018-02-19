@@ -1,16 +1,52 @@
 #!/bin/bash
-echo "Set Mysql root Password"
-read -srp "Password: " sqlPass
+while :
+do
+    echo "Set Mysql root Password"
+    read -srp "Password: " sqlPass
+    echo
+    echo "Retype Mysql root Password"
+    read -srp "Password: " RsqlPass
+    echo
+    if [ $sqlPass = $RsqlPass ]; then
+        break
+    else
+        echo "Password is incorrect."
+    fi
+done
 sed -ie "s/mysql/$sqlPass/" ./irohaBoard_Installer_MySQL.cnf
-echo
-echo "Set Mysql User irohaBoard root Password"
-read -srp "Password: " irohaPass
+
+while :
+do
+    echo "Set Mysql User irohaBoard root Password"
+    read -srp "Password: " irohaPass
+    echo
+    echo "Retype Mysql User irohaBoard root Password"
+    read -srp "Password: " RirohaPass
+    echo
+    if [ $irohaPass = $RirohaPass ]; then
+        break
+    else
+        echo "Password is incorrect."
+    fi
+done
 sed -ie "s/irohaPass/$irohaPass/" ./irohaBoard_Installer_MySQL.sql
-echo
-echo "Set Mysql User irohaBoard remote Password"
-read -srp "Password: " irohaRemotePass
+
+while :
+do
+    echo "Set Mysql User irohaBoard remote Password"
+    read -srp "Password: " irohaRemotePass
+    echo
+    echo "Retype Mysql User irohaBoard remote Password"
+    read -srp "Password: " RirohaRemotePass
+    echo
+    if [ $irohaRemotePass = $RirohaRemotePass ]; then
+        break
+    else
+        echo "Password is incorrect."
+    fi
+done
 sed -ie "s/irohaRemotePass/$irohaRemotePass/" ./irohaBoard_Installer_MySQL.sql
-echo
+
 echo -e "\e[33m Package\e[m"
 echo -e "\e[34m Package Update\e[m"
 apt update
@@ -57,3 +93,5 @@ sudo chown -R www-data:www-data /var/www/
 echo -e "\e[33m Restart by pressing Enter key\e[m"
 read
 reboot
+
+exit 0
