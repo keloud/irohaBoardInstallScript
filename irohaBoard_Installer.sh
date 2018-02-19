@@ -76,7 +76,7 @@ systemctl start mysql
 echo -e "\e[34m MySQL Setting\e[m"
 mysql --defaults-extra-file=irohaBoard_Installer_MySQL.cnf < irohaBoard_Installer_MySQL.sql
 sed -ie '/\[mysqld\]/a sql_mode=ALLOW_INVALID_DATES' /etc/mysql/mysql.conf.d/mysqld.cnf
-sed -e 's/bind-address/#bind-address/' /etc/mysql/mysql.conf.d/mysqld.cnf
+sed -ie 's/bind-address/#bind-address/' /etc/mysql/mysql.conf.d/mysqld.cnf
 
 echo -e "\e[33m CakePHP\e[m"
 wget https://github.com/cakephp/cakephp/archive/2.10.7.tar.gz
