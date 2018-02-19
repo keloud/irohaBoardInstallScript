@@ -21,16 +21,26 @@ sudo apt upgrade -y
 </code>
 
 ### ダウンロードする
+<code>
 wget https://github.com/keloud/irohaboard_InstallScript/archive/master.tar.gz
+</code>
 
 ### 解凍する
+<code>
 tar -xvf master.tar.gz
+</code>
 
 ### カレントディレクトリを変更する
+<code>
 cd irohaBoard_InstallScript-master
+</code>
 
 ### 実行権限を与える
+<code>
 chmod 555 irohaBoard_Installer.sh
+</code>
 
 ### インストールを開始する
+<code>
 sudo ./irohaBoard_Installer.sh
+</code>
