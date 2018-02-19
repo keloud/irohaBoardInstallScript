@@ -54,5 +54,6 @@ sed -ie "s/'password' => '',/'password' => '"irohaPass"',/g" /var/www/html/Confi
 sed -ie "s/'database' => 'hiiragi2',/'database' => 'ib',/g" /var/www/html/Config/database.php
 sudo chown -R www-data:www-data /var/www/
 
-echo -e "\e[33m After\e[m"
+echo -e "\e[33m Restart by pressing Enter key\e[m"
+read
 reboot
