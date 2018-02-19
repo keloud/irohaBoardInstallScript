@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 while :
 do
     echo "Set Mysql root Password"
