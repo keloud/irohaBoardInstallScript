@@ -2,15 +2,15 @@
 echo "Set Mysql root Password"
 read -srp "Password: " sqlPass
 sed -ie "s/mysql/$sqlPass/" ./irohaBoard_Installer_MySQL.cnf
-
+echo
 echo "Set Mysql User irohaBoard root Password"
 read -srp "Password: " irohaPass
-sed -ie "/irohaPass/$irohaPass/" ./irohaBoard_Installer_MySQL.sql
-
+sed -ie "s/irohaPass/$irohaPass/" ./irohaBoard_Installer_MySQL.sql
+echo
 echo "Set Mysql User irohaBoard remote Password"
 read -srp "Password: " irohaRemotePass
 sed -ie "s/irohaRemotePass/$irohaRemotePass/" ./irohaBoard_Installer_MySQL.sql
-
+echo
 echo -e "\e[33m Package\e[m"
 echo -e "\e[34m Package Update\e[m"
 apt update
