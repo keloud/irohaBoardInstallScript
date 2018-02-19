@@ -14,7 +14,7 @@ do
     fi
 done
 echo
-sed -ie "s/mysql/$sqlPass/" ./irohaBoard_Installer_MySQL.cnf
+sed -ie "s/mysqlPass/$sqlPass/" ./irohaBoard_Installer_MySQL.cnf
 
 while :
 do
